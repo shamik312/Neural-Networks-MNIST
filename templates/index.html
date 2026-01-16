@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MNIST Digit Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>MNIST Digit Prediction</h1>
+    <p>Enter an image index from the MNIST dataset (0 – 59999)</p>
+
+    <form method="post">
+        <input type="number" name="index" min="0" max="59999" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is not none %}
+    <div class="result">
+        <h2>Predicted Label:</h2>
+        <span class="label">{{ prediction }}</span>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
